@@ -1,22 +1,25 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.nio.file.*;
 
 public class Students {
     private final String lastName;
     private final String firstName;
     private final int studentID;
     private static int studentCounter = 0;
+    private long count = Files.lines(Path.of("src/Students")).count();
 
-    public Students(String fName, String lName){
+    public Students(String fName, String lName) throws IOException {
         this.firstName = fName;
         this.lastName = lName;
         studentCounter++;
         studentID = studentCounter;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ArrayList<String> fileData = getFileData("src/Students");
         ArrayList<Students> listOfStudents = new ArrayList<>();
         System.out.println("insert into students (firstName, lastName) values ");
@@ -34,7 +37,7 @@ public class Students {
 
     @Override
     public String toString() {
-        if (studentID == 5000){
+        if (studentID == count){
             return ("(\"" + firstName + "\",\"" + lastName + "\");");
         } else {
             return ("(\""+firstName+"\",\""+lastName+"\"),");
