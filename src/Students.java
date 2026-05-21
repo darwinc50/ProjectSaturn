@@ -10,7 +10,7 @@ public class Students {
     private final String firstName;
     private final int studentID;
     private static int studentCounter = 0;
-    private long count = Files.lines(Path.of("src/Students")).count();
+    private final long count = Files.lines(Path.of("src/Students")).count();
 
     public Students(String fName, String lName) throws IOException {
         this.firstName = fName;
