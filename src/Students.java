@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Students {
-    private String lastName;
-    private String firstName;
-    private int studentID;
+    private final String lastName;
+    private final String firstName;
+    private final int studentID;
     private static int studentCounter = 0;
 
     public Students(String fName, String lName){
@@ -20,14 +20,14 @@ public class Students {
         ArrayList<String> fileData = getFileData("src/Students");
         ArrayList<Students> listOfStudents = new ArrayList<>();
         System.out.println("insert into students (firstName, lastName) values ");
-        for (int i = 0; i < fileData.size(); i++) {
-            String first = fileData.get(i).split(" ")[0];
-            String last = fileData.get(i).split(" ")[1];
+        for (String fileDatum : fileData) {
+            String first = fileDatum.split(" ")[0];
+            String last = fileDatum.split(" ")[1];
             Students s = new Students(first, last);
             listOfStudents.add(s);
         }
-        for (int i = 0; i < listOfStudents.size(); i++) {
-            System.out.println(listOfStudents.get(i));
+        for (Students listOfStudent : listOfStudents) {
+            System.out.println(listOfStudent);
         }
 
     }
@@ -42,13 +42,13 @@ public class Students {
     }
 
     public static ArrayList<String> getFileData(String fileName) {
-        ArrayList<String> fileData = new ArrayList<String>();
+        ArrayList<String> fileData = new ArrayList<>();
         try {
             File f = new File(fileName);
             Scanner s = new Scanner(f);
             while (s.hasNextLine()) {
                 String line = s.nextLine();
-                if (!line.equals(""))
+                if (!line.isEmpty())
                     fileData.add(line);
             }
             return fileData;
