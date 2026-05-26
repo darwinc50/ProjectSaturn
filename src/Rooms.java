@@ -1,8 +1,9 @@
-public class Rooms {
+import java.util.ArrayList;
 
+public class Rooms {
+    private static ArrayList<Rooms> rooms = new ArrayList<>();
     private final char direction;
     private char floor;
-    private char wing;
     private int roomNum;
     private static char[] directions = new char[]{'N','S','E','W'};
     private static int roomIDCounter = 0;
@@ -15,15 +16,19 @@ public class Rooms {
         roomIDCounter++;
         roomID = roomIDCounter;
     }
-    public static void main(String[] args) {
-        System.out.println("Insert into Rooms (floor, wing, roomNum) " + "VALUES");
+    public static void generateRooms() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < directions.length; j++) {
                 for (int k = 1; k < 21; k++) {
-                    System.out.println(new Rooms(i,j,k));
-                    //System.out.println(i);
+                rooms.add(new Rooms(i,j,k));
                 }
             }
+        }
+    }
+    public static void printRooms(){
+        System.out.println("Insert into Rooms (floor, wing, roomNum) " + "VALUES");
+        for (int i = 0; i < rooms.size(); i++) {
+            System.out.println(rooms.get(i));
         }
     }
 

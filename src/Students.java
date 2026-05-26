@@ -6,11 +6,13 @@ import java.util.Scanner;
 import java.nio.file.*;
 
 public class Students {
+    private static ArrayList<Students> students = new ArrayList<>();
     private final String lastName;
     private final String firstName;
     private final int studentID;
     private static int studentCounter = 0;
     private final long count = Files.lines(Path.of("src/Students")).count();
+
 
     public Students(String fName, String lName) throws IOException {
         this.firstName = fName;
@@ -19,20 +21,20 @@ public class Students {
         studentID = studentCounter;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void generatesStudents() throws IOException {
         ArrayList<String> fileData = getFileData("src/Students");
-        ArrayList<Students> listOfStudents = new ArrayList<>();
-        System.out.println("insert into students (firstName, lastName) values ");
         for (String fileDatum : fileData) {
             String first = fileDatum.split(" ")[0];
             String last = fileDatum.split(" ")[1];
             Students s = new Students(first, last);
-            listOfStudents.add(s);
+            students.add(s);
         }
-        for (Students listOfStudent : listOfStudents) {
-            System.out.println(listOfStudent);
+    }
+    public static void printStudents(){
+        System.out.println("insert into students (firstName, lastName) values ");
+        for (Students student : students) {
+            System.out.println(student);
         }
-
     }
 
     @Override
