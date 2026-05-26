@@ -3,22 +3,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.nio.file.*;
-
 public class Students {
     private static ArrayList<Students> students = new ArrayList<>();
     private final String lastName;
     private final String firstName;
-    private final int studentID;
-    private static int studentCounter = 0;
-    private final long count = Files.lines(Path.of("src/Students")).count();
 
-
-    public Students(String fName, String lName) throws IOException {
+    public Students(String fName, String lName){
         this.firstName = fName;
         this.lastName = lName;
-        studentCounter++;
-        studentID = studentCounter;
     }
 
     public static void generatesStudents() throws IOException {
@@ -32,18 +24,15 @@ public class Students {
     }
     public static void printStudents(){
         System.out.println("insert into students (firstName, lastName) values ");
-        for (Students student : students) {
-            System.out.println(student);
+        for (int i = 0; i < students.size()-2; i++) {
+            System.out.print(students.get(i)); System.out.println(",");
         }
+        System.out.print(students.get(students.size() -1)); System.out.println(";");
     }
 
     @Override
     public String toString() {
-        if (studentID == count){
-            return ("(\"" + firstName + "\",\"" + lastName + "\");");
-        } else {
-            return ("(\""+firstName+"\",\""+lastName+"\"),");
-        }
+            return ("(\""+firstName+"\",\""+lastName+"\")");
     }
 
     public static ArrayList<String> getFileData(String fileName) {

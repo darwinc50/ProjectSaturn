@@ -5,25 +5,30 @@ import java.util.Scanner;
 
 public class Departments {
     private String departmentName;
+    private static ArrayList<Departments> departments = new ArrayList<>();
 
     public Departments(String depName){
         this.departmentName = depName;
     }
-    public static void main(String[] args) {
+
+    public static void generateDepartments() {
         ArrayList<String> fileData = getFileData("src/Departments");
-        ArrayList<Departments> departments = new ArrayList<>();
-        for (int i = 0; i < fileData.size(); i++) {
-            Departments d = new Departments(fileData.get(i));
+        for (String fileDatum : fileData) {
+            Departments d = new Departments(fileDatum);
             departments.add(d);
         }
-        for (Departments d : departments){
-            System.out.println(d);
+    }
+    public static void printDepartments(){
+        System.out.println("Insert into Departments (departmentName) values");
+        for (int i = 0; i < departments.size() - 2; i++) {
+            System.out.print(departments.get(i));   System.out.println(",");
         }
+        System.out.print(departments.get(departments.size()-1));    System.out.println(";");
     }
 
     @Override
     public String toString() {
-        return ("Insert into Departments (departmentName) " + "VALUES (\""+departmentName+"\");");
+        return ("(\""+departmentName+"\")");
     }
 
     public static ArrayList<String> getFileData(String fileName) {
