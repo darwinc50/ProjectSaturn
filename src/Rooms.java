@@ -27,7 +27,7 @@ public class Rooms {
     }
     public static void printRooms(){
         System.out.println("Insert into Rooms (floor, wing, roomNum) " + "VALUES");
-        for (int i = 0; i < rooms.size() - 2; i++) {
+        for (int i = 0; i < rooms.size() - 1; i++) {
             System.out.print(rooms.get(i)); System.out.println(",");
         }
         System.out.print(rooms.get(rooms.size()-1)); System.out.println(";");

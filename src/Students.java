@@ -24,7 +24,7 @@ public class Students {
     }
     public static void printStudents(){
         System.out.println("insert into students (firstName, lastName) values ");
-        for (int i = 0; i < students.size()-2; i++) {
+        for (int i = 0; i < students.size()-1; i++) {
             System.out.print(students.get(i)); System.out.println(",");
         }
         System.out.print(students.get(students.size() -1)); System.out.println(";");

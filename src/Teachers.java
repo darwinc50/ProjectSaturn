@@ -16,14 +16,21 @@ public class Teachers {
     }
     public static void generateTeachers() {
         ArrayList<String> fileData = getFileData("src/Teachers");
+
     }
     public static void printTeachers(){
-
+        System.out.println("Insert into teachers (teacherFirstName, teacherLastName, departmentID");
+        for (int i = 0; i < teachers.size()-1; i++) {
+            System.out.print(teachers.get(i));
+            System.out.println(",");
+        }
+        System.out.print(teachers.get(teachers.size()-1));
+        System.out.println(";");
     }
 
     @Override
     public String toString() {
-        return "";
+        return ("(\""+firstName+"\",\""+lastName+"\"," +deptID+")");
     }
 
     public static ArrayList<String> getFileData(String fileName) {
