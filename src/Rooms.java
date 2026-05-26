@@ -16,10 +16,12 @@ public class Rooms {
         roomID = roomIDCounter;
     }
     public static void main(String[] args) {
+        System.out.println("Insert into Rooms (floor, wing, roomNum) " + "VALUES");
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < directions.length; j++) {
                 for (int k = 1; k < 21; k++) {
                     System.out.println(new Rooms(i,j,k));
+                    //System.out.println(i);
                 }
             }
         }
@@ -27,6 +29,9 @@ public class Rooms {
 
     @Override
     public String toString() {
-        return ("Insert into Rooms (floor, wing, roomNum) " + "VALUES ("+floor+",\""+direction+"\","+roomNum+");");
+        if (roomID == 720){
+            return ("(\""+floor+"\",\""+direction+"\","+roomNum+");");
+        }
+        return ("(\""+floor+"\",\""+direction+"\","+roomNum+"),");
     }
 }
