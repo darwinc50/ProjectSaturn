@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Students {
-    private static ArrayList<Students> students = new ArrayList<>();
+    private static final ArrayList<Students> students = new ArrayList<>();
     private final String lastName;
     private final String firstName;
 
@@ -27,7 +27,7 @@ public class Students {
         for (int i = 0; i < students.size()-1; i++) {
             System.out.print(students.get(i)); System.out.println(",");
         }
-        System.out.print(students.get(students.size() -1)); System.out.println(";");
+        System.out.print(students.getLast()); System.out.println(";");
     }
 
     @Override

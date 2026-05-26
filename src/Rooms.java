@@ -1,20 +1,16 @@
 import java.util.ArrayList;
 
 public class Rooms {
-    private static ArrayList<Rooms> rooms = new ArrayList<>();
+    private static final ArrayList<Rooms> rooms = new ArrayList<>();
     private final char direction;
-    private char floor;
-    private int roomNum;
-    private static char[] directions = new char[]{'N','S','E','W'};
-    private static int roomIDCounter = 0;
-    private int roomID;
+    private final char floor;
+    private final int roomNum;
+    private static final char[] directions = new char[]{'N','S','E','W'};
 
     public Rooms(int floor, int direction, int rNum) {
         this.floor = (floor == 0)? 'B' : (char) (floor + '0');
         this.direction = directions[direction];
         this.roomNum = rNum;
-        roomIDCounter++;
-        roomID = roomIDCounter;
     }
     public static void generateRooms() {
         for (int i = 0; i < 9; i++) {
@@ -30,7 +26,7 @@ public class Rooms {
         for (int i = 0; i < rooms.size() - 1; i++) {
             System.out.print(rooms.get(i)); System.out.println(",");
         }
-        System.out.print(rooms.get(rooms.size()-1)); System.out.println(";");
+        System.out.print(rooms.getLast()); System.out.println(";");
     }
 
     @Override

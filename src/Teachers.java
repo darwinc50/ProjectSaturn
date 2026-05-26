@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Teachers {
-    private String firstName;
-    private String lastName;
-    private int deptID;
-    private static ArrayList<Teachers> teachers = new ArrayList<>();
-
+    private static final ArrayList<Teachers> teachers = new ArrayList<>();
+    private final String firstName;
+    private final String lastName;
+    private final int deptID;
     public Teachers (String fName, String lName, int dID){
         this.firstName = fName;
         this.lastName = lName;
@@ -24,7 +23,7 @@ public class Teachers {
             System.out.print(teachers.get(i));
             System.out.println(",");
         }
-        System.out.print(teachers.get(teachers.size()-1));
+        System.out.print(teachers.getLast());
         System.out.println(";");
     }
 
@@ -40,7 +39,7 @@ public class Teachers {
             Scanner s = new Scanner(f);
             while (s.hasNextLine()) {
                 String line = s.nextLine();
-                if (!line.equals(""))
+                if (!line.isEmpty())
                     fileData.add(line);
             }
             return fileData;

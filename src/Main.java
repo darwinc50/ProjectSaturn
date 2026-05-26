@@ -11,6 +11,5 @@ public class Main {
         Departments.generateDepartments();
         Departments.printDepartments();
 
-        Teachers.printTeachers();
     }
 }
