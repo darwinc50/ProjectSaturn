@@ -21,23 +21,15 @@ public class CourseOfferings {
         this.period = period;
     }
 
-    public static void main(String[] args) {
-        CourseOfferings c = new CourseOfferings(1,1,1,1);
-        CourseOfferings c1 = new CourseOfferings(2,2,2,2);
-        courseOfferings.add(c);
-        courseOfferings.add(c1);
-        printCourseOfferings();
-    }
-
     public static void generateCourseOfferings() {
 
         ArrayList<Courses> courses = Courses.getCourses();
         ArrayList<Teachers> teachers = Teachers.getTeachers();
         ArrayList<Rooms> rooms = Rooms.getRooms();
 
-        ArrayList<CourseOfferings> temp = new ArrayList<>();
-
         Random rand = new Random();
+
+        ArrayList<CourseOfferings> temp = new ArrayList<>();
 
         for (Courses c : courses) {
 
@@ -47,7 +39,7 @@ public class CourseOfferings {
 
                 boolean placed = false;
 
-                for (int attempt = 0; attempt < 200 && !placed; attempt++) {
+                for (int periodTry = 1; periodTry <= 10 && !placed; periodTry++) {
 
                     int period = rand.nextInt(10) + 1;
 
@@ -58,23 +50,44 @@ public class CourseOfferings {
                     boolean roomConflict = false;
 
                     for (CourseOfferings co : temp) {
+
                         if (co.teacherID == t.getTeacherID() && co.period == period) {
                             teacherConflict = true;
                         }
+
                         if (co.roomID == r.getRoomID() && co.period == period) {
                             roomConflict = true;
                         }
                     }
 
                     if (!teacherConflict && !roomConflict) {
-                        temp.add(new CourseOfferings(c.getCourseID(), t.getTeacherID(), r.getRoomID(),period));
+
+                        temp.add(new CourseOfferings(
+                                c.getCourseID(),
+                                t.getTeacherID(),
+                                r.getRoomID(),
+                                period
+                        ));
+
                         placed = true;
                     }
                 }
+
+                if (!placed) {
+
+                    Teachers t = teachers.get(rand.nextInt(teachers.size()));
+                    Rooms r = rooms.get(rand.nextInt(rooms.size()));
+                    int period = rand.nextInt(10) + 1;
+
+                    temp.add(new CourseOfferings(
+                            c.getCourseID(),
+                            t.getTeacherID(),
+                            r.getRoomID(),
+                            period
+                    ));
+                }
             }
         }
-
-        courseOfferings.clear();
         courseOfferings.addAll(temp);
     }
 

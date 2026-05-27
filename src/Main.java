@@ -11,14 +11,22 @@ public class Main {
 //        Grades.generateGrades();
 
 
-        Students.printStudents();
-        Teachers.printTeachers();
-        Rooms.printRooms();
-        Departments.printDepartments();
-        Courses.printCourses();
+//        Students.printStudents();
+//        System.out.println();
+//        Teachers.printTeachers();
+//        System.out.println();
+//        Rooms.printRooms();
+//        System.out.println();
+//        Departments.printDepartments();
+//        System.out.println();
+//        Courses.printCourses();
+//        System.out.println();
         CourseOfferings.printCourseOfferings();
+        System.out.println();
 //        Rosters.printRosters();
+//        System.out.println();
 //        Assignments.printGrades();
+//        System.out.println();
 //        Grades.printGrades();
     }
 }
