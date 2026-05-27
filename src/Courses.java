@@ -4,16 +4,43 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Courses {
-    private String name;
-    private String type;
-    public Courses(String courseName, String courseType){
-        this.name = courseName;
-        this.type = courseType;
+    private String courseName;
+    private String courseType;
+    private int deptID;
+    private static ArrayList<Courses> courses = new ArrayList<>();
+
+    public Courses(String name, String type, int ID){
+        this.courseName = name;
+        this.courseType = type;
+        this.deptID = ID;
     }
-    public static void main(String[] args) {
-        ArrayList<String> fileData = getFileData("");
-        ArrayList<Courses> courses = new ArrayList<>();
+    public static void generateCourses() {
+        ArrayList<String> fileData = getFileData("src/Courses.csv");
+        for (String fileDatum : fileData) {
+            String[] parts = fileDatum.split(",");
+            String courseName = parts[0];
+            String courseType = parts[1];
+            int deptID = Integer.parseInt(parts[2]);
+            Courses c = new Courses(courseName,courseType,deptID);
+            courses.add(c);
+        }
     }
+
+    public static void printCourses(){
+        System.out.println("insert into courses (courseName, courseType, departmentID) values");
+        for (int i = 0; i < courses.size()-1; i++) {
+            System.out.print(courses.get(i));
+            System.out.println(",");
+        }
+        System.out.print(courses.getLast());
+        System.out.println(";");
+    }
+
+    @Override
+    public String toString() {
+       return ("(\""+courseName+"\",\""+courseType+"\"," +deptID+")");
+    }
+
     public static ArrayList<String> getFileData(String fileName) {
         ArrayList<String> fileData = new ArrayList<String>();
         try {

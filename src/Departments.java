@@ -20,10 +20,10 @@ public class Departments {
     }
     public static void printDepartments(){
         System.out.println("Insert into Departments (departmentName) values");
-        for (int i = 0; i < departments.size() - 2; i++) {
+        for (int i = 0; i < departments.size() - 1; i++) {
             System.out.print(departments.get(i));   System.out.println(",");
         }
-        System.out.print(departments.get(departments.size()-1));    System.out.println(";");
+        System.out.print(departments.getLast());    System.out.println(";");
     }
 
     @Override
