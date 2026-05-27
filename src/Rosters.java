@@ -5,7 +5,7 @@ public class Rosters {
     private static int rosterID;
     private static int studentID;
     private static int offeringID;
-    private static ArrayList<Rosters> rosters = new ArrayList<>();
+    private static final ArrayList<Rosters> rosters = new ArrayList<>();
     private static int rosterCounter = 1;
 
     public Rosters(int studentID, int offeringID){
@@ -16,7 +16,16 @@ public class Rosters {
     }
 
     public static void generateRosters(){
+        ArrayList<CourseOfferings> courseOfferings = CourseOfferings.getCourseOfferings();
+        ArrayList<Students> students = Students.getStudents();
+    }
 
+    public static ArrayList<Rosters> getRosters() {
+        return rosters;
+    }
+
+    public static int getRosterID() {
+        return rosterID;
     }
 
     public static void printRosters(){

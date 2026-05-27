@@ -31,6 +31,10 @@ public class Students {
         System.out.print(students.getLast()); System.out.println(";");
     }
 
+    public static ArrayList<Students> getStudents() {
+        return students;
+    }
+
     @Override
     public String toString() {
             return ("(\""+firstName+"\",\""+lastName+"\")");
