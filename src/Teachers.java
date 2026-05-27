@@ -8,6 +8,7 @@ public class Teachers {
     private final String firstName;
     private final String lastName;
     private final int deptID;
+
     public Teachers (String fName, String lName, int dID){
         this.firstName = fName;
         this.lastName = lName;
@@ -15,10 +16,17 @@ public class Teachers {
     }
     public static void generateTeachers() {
         ArrayList<String> fileData = getFileData("src/Teachers");
-
+        for (String fileDatum : fileData) {
+            String[] parts = fileDatum.split(",");
+            String firstName = parts[0];
+            String lastName = parts[1];
+            int deptID = Integer.parseInt(parts[2]);
+            Teachers t = new Teachers(firstName,lastName,deptID);
+            teachers.add(t);
+        }
     }
     public static void printTeachers(){
-        System.out.println("Insert into teachers (teacherFirstName, teacherLastName, departmentID");
+        System.out.println("Insert into teachers (teacherFirstName, teacherLastName, departmentID)");
         for (int i = 0; i < teachers.size()-1; i++) {
             System.out.print(teachers.get(i));
             System.out.println(",");

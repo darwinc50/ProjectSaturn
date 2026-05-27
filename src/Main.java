@@ -10,7 +10,9 @@ public class Main {
 //        System.out.println();
 //        Departments.generateDepartments();
 //        Departments.printDepartments();
-        Courses.generateCourses();
-        Courses.printCourses();
+//        Courses.generateCourses();
+//        Courses.printCourses();
+        Teachers.generateTeachers();
+        Teachers.printTeachers();
     }
 }
