@@ -1,25 +1,24 @@
-import java.io.IOException;
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         Students.generatesStudents();
-        Students.printStudents();
-        System.out.println();
-
         Rooms.generateRooms();
-        Rooms.printRooms();
-        System.out.println();
-
         Departments.generateDepartments();
-        Departments.printDepartments();
-        System.out.println();
-
-        Courses.generateCourses();
-        Courses.printCourses();
-        System.out.println();
-
         Teachers.generateTeachers();
+        Courses.generateCourses();
+        CourseOfferings.generateCourseOfferings();
+//               Rosters.generateRosters();
+//        Assignments.generateGrades();
+//        Grades.generateGrades();
+
+
+        Students.printStudents();
         Teachers.printTeachers();
-        System.out.println();
+        Rooms.printRooms();
+        Departments.printDepartments();
+        Courses.printCourses();
+        CourseOfferings.printCourseOfferings();
+//        Rosters.printRosters();
+//        Assignments.printGrades();
+//        Grades.printGrades();
     }
 }

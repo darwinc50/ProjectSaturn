@@ -8,14 +8,18 @@ public class Teachers {
     private final String firstName;
     private final String lastName;
     private final int deptID;
+    private final int teacherID;
+    private static int idCounter = 1;
 
     public Teachers (String fName, String lName, int dID){
         this.firstName = fName;
         this.lastName = lName;
         this.deptID = dID;
+        this.teacherID = idCounter;
+        idCounter++;
     }
     public static void generateTeachers() {
-        ArrayList<String> fileData = getFileData("src/Teachers");
+        ArrayList<String> fileData = getFileData("src/Teachers.csv");
         for (String fileDatum : fileData) {
             String[] parts = fileDatum.split(",");
             String firstName = parts[0];
@@ -33,6 +37,10 @@ public class Teachers {
         }
         System.out.print(teachers.getLast());
         System.out.println(";");
+    }
+
+    public static ArrayList<Teachers> getTeachers() {
+        return teachers;
     }
 
     @Override
@@ -55,5 +63,9 @@ public class Teachers {
         catch (FileNotFoundException e) {
             return fileData;
         }
+    }
+
+    public int getTeacherID() {
+        return teacherID;
     }
 }

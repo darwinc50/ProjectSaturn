@@ -4,16 +4,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Courses {
-    private String courseName;
-    private String courseType;
-    private int deptID;
-    private static ArrayList<Courses> courses = new ArrayList<>();
+    private final String courseName;
+    private final String courseType;
+    private final int deptID;
+    private final int courseID;
+    private static int courseCounter = 1;
+    private static final ArrayList<Courses> courses = new ArrayList<>();
 
     public Courses(String name, String type, int ID){
         this.courseName = name;
         this.courseType = type;
         this.deptID = ID;
+        this.courseID = courseCounter;
+        courseCounter++;
     }
+
     public static void generateCourses() {
         ArrayList<String> fileData = getFileData("src/Courses.csv");
         for (String fileDatum : fileData) {
@@ -26,14 +31,18 @@ public class Courses {
         }
     }
 
-    public static void printCourses(){
+    public static void printCourses() {
         System.out.println("insert into courses (courseName, courseType, departmentID) values");
-        for (int i = 0; i < courses.size()-1; i++) {
+        for (int i = 0; i < courses.size() - 1; i++) {
             System.out.print(courses.get(i));
             System.out.println(",");
         }
         System.out.print(courses.getLast());
         System.out.println(";");
+    }
+
+    public static ArrayList<Courses> getCourses() {
+        return courses;
     }
 
     @Override
@@ -56,5 +65,9 @@ public class Courses {
         catch (FileNotFoundException e) {
             return fileData;
         }
+    }
+
+    public int getCourseID() {
+        return courseID;
     }
 }
