@@ -1,8 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Students {
     private static final ArrayList<Students> students = new ArrayList<>();
     private final String lastName;
@@ -13,7 +13,7 @@ public class Students {
         this.lastName = lName;
     }
 
-    public static void generatesStudents() throws IOException {
+    public static void generatesStudents() {
         ArrayList<String> fileData = getFileData("src/Students");
         for (String fileDatum : fileData) {
             String first = fileDatum.split(" ")[0];
