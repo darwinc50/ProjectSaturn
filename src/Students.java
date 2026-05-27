@@ -22,6 +22,7 @@ public class Students {
             students.add(s);
         }
     }
+
     public static void printStudents(){
         System.out.println("insert into students (firstName, lastName) values ");
         for (int i = 0; i < students.size()-1; i++) {
