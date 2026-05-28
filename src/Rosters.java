@@ -58,7 +58,7 @@ public class Rosters {
     }
 
     public static void printRosters(){
-        System.out.println("insert into rosters (studentID, offeringID) values");
+        System.out.println("insert into Rosters (studentID, offeringID) values");
         for (int i = 0; i < rosters.size() - 1; i++) {
             System.out.print(rosters.get(i));
             System.out.println(",");

@@ -32,7 +32,7 @@ public class Courses {
     }
 
     public static void printCourses() {
-        System.out.println("insert into courses (courseName, courseType, departmentID) values");
+        System.out.println("insert into Courses (courseName, courseType, departmentID) values");
         for (int i = 0; i < courses.size() - 1; i++) {
             System.out.print(courses.get(i));
             System.out.println(",");

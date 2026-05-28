@@ -14,10 +14,7 @@ public class Assignments {
     }
 
     public static void generateGrades(){
-
-    }
-
-    public static void main(String[] args) {
+        ArrayList<CourseOfferings> offerings = CourseOfferings.getCourseOfferings();
 
     }
 
