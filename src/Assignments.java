@@ -14,12 +14,25 @@ public class Assignments {
     }
 
     public static void generateGrades(){
+        String name = "Assignment ";
         ArrayList<CourseOfferings> offerings = CourseOfferings.getCourseOfferings();
-
+        for (int i = 0; i < offerings.size(); i++) {
+            for (int j = 1; j <= 13; j++) {
+                assignments.add(new Assignments(offerings.get(i).getCourseOfferingID(), name + j, false));
+            }
+            for (int j = 14; j <= 15; j++) {
+                assignments.add(new Assignments(offerings.get(i).getCourseOfferingID(),name + j, true));
+            }
+        }
     }
 
     public static ArrayList<Assignments> getAssignments() {
         return assignments;
+    }
+
+    @Override
+    public String toString() {
+        return ("("+offeringID+",\""+assignmentName+"\"," +isAssignmentMajor+")");
     }
 
     public static void printGrades(){

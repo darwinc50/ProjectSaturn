@@ -20,13 +20,9 @@ public class Rosters {
         ArrayList<CourseOfferings> offerings = CourseOfferings.getCourseOfferings();
         ArrayList<Students> students = Students.getStudents();
         Random rand = new Random();
-        rosters.clear();
-
         for (Students s : students) {
             ArrayList<Integer> usedOfferings = new ArrayList<>();
-
             for (int period = 1; period <= 10; period++) {
-                // Filter to only offerings in this period that the student hasn't taken
                 ArrayList<CourseOfferings> candidates = new ArrayList<>();
                 for (CourseOfferings co : offerings) {
                     if (co.getPeriod() == period &&
@@ -34,14 +30,10 @@ public class Rosters {
                         candidates.add(co);
                     }
                 }
-
                 if (!candidates.isEmpty()) {
                     CourseOfferings chosen =
                             candidates.get(rand.nextInt(candidates.size()));
-                    rosters.add(new Rosters(
-                            s.getStudentID(),
-                            chosen.getCourseOfferingID()
-                    ));
+                    rosters.add(new Rosters(s.getStudentID(), chosen.getCourseOfferingID()));
                     usedOfferings.add(chosen.getCourseOfferingID());
                 }
             }

@@ -21,69 +21,40 @@ public class CourseOfferings {
     }
 
     public static void generateCourseOfferings() {
-
         ArrayList<Courses> courses = Courses.getCourses();
         ArrayList<Teachers> teachers = Teachers.getTeachers();
         ArrayList<Rooms> rooms = Rooms.getRooms();
-
         Random rand = new Random();
-
         ArrayList<CourseOfferings> temp = new ArrayList<>();
-
         for (Courses c : courses) {
-
             int numOfferings = rand.nextInt(5) + 1;
-
             for (int i = 0; i < numOfferings; i++) {
-
                 boolean placed = false;
-
                 for (int periodTry = 1; periodTry <= 10 && !placed; periodTry++) {
-
                     int period = rand.nextInt(10) + 1;
-
                     Teachers t = teachers.get(rand.nextInt(teachers.size()));
                     Rooms r = rooms.get(rand.nextInt(rooms.size()));
-
                     boolean teacherConflict = false;
                     boolean roomConflict = false;
-
                     for (CourseOfferings co : temp) {
-
                         if (co.teacherID == t.getTeacherID() && co.period == period) {
                             teacherConflict = true;
                         }
-
                         if (co.roomID == r.getRoomID() && co.period == period) {
                             roomConflict = true;
                         }
                     }
-
                     if (!teacherConflict && !roomConflict) {
-
-                        temp.add(new CourseOfferings(
-                                c.getCourseID(),
-                                t.getTeacherID(),
-                                r.getRoomID(),
-                                period
-                        ));
-
+                        temp.add(new CourseOfferings(c.getCourseID(), t.getTeacherID(), r.getRoomID(), period));
                         placed = true;
                     }
                 }
-
                 if (!placed) {
-
                     Teachers t = teachers.get(rand.nextInt(teachers.size()));
                     Rooms r = rooms.get(rand.nextInt(rooms.size()));
                     int period = rand.nextInt(10) + 1;
 
-                    temp.add(new CourseOfferings(
-                            c.getCourseID(),
-                            t.getTeacherID(),
-                            r.getRoomID(),
-                            period
-                    ));
+                    temp.add(new CourseOfferings(c.getCourseID(), t.getTeacherID(), r.getRoomID(), period));
                 }
             }
         }

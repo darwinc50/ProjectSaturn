@@ -7,32 +7,33 @@ public class Main {
         Courses.generateCourses();
         CourseOfferings.generateCourseOfferings();
         Rosters.generateRosters();
-//        Assignments.generateGrades();
+        Assignments.generateGrades();
 //        Grades.generateGrades();
 //
 //
-        Students.printStudents();
-        System.out.println();
-
-        Teachers.printTeachers();
-        System.out.println();
-        Rooms.printRooms();
-        System.out.println();
-
-        Departments.printDepartments();
-        System.out.println();
-
-        Courses.printCourses();
-        System.out.println();
-
-        CourseOfferings.printCourseOfferings();
-        System.out.println();
-
-        Rosters.printRosters();
-        System.out.println();
-
-//        Assignments.printGrades();
+//        Students.printStudents();
 //        System.out.println();
+//
+//        Teachers.printTeachers();
+//        System.out.println();
+//        Rooms.printRooms();
+//        System.out.println();
+//
+//        Departments.printDepartments();
+//        System.out.println();
+//
+//        Courses.printCourses();
+//        System.out.println();
+//
+        CourseOfferings.printCourseOfferings();
+//        System.out.println();
+//
+//        Rosters.printRosters();
+//        System.out.println();
+
+        Assignments.printGrades();
+        System.out.println(
+                Assignments.getAssignments().size());//        System.out.println();
 //
 //        Grades.printGrades();
     }
