@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Rosters {
 
@@ -16,8 +17,23 @@ public class Rosters {
     }
 
     public static void generateRosters(){
-        ArrayList<CourseOfferings> courseOfferings = CourseOfferings.getCourseOfferings();
+        ArrayList<CourseOfferings> offerings = CourseOfferings.getCourseOfferings();
         ArrayList<Students> students = Students.getStudents();
+        Random rand = new Random();
+        for (Students s : students) {
+            for (int period = 1; period <= 10; period++) {
+                ArrayList<CourseOfferings> valid = new ArrayList<>();
+                for (CourseOfferings co : offerings) {
+                    if (co.getPeriod() == period) {
+                        valid.add(co);
+                    }
+                }
+                if (!valid.isEmpty()) {
+                    CourseOfferings chosen = valid.get(rand.nextInt(valid.size()));
+                    rosters.add(new Rosters(s.getStudentID(), chosen.getCourseOfferingID()));
+                }
+            }
+        }
     }
 
     public static ArrayList<Rosters> getRosters() {

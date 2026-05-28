@@ -29,7 +29,7 @@ public class Main {
 //        CourseOfferings.printCourseOfferings();
 //        System.out.println();
 //
-//        Rosters.printRosters();
+        Rosters.printRosters();
 //        System.out.println();
 //
 //        Assignments.printGrades();

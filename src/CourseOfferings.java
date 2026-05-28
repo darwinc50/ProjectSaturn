@@ -7,6 +7,8 @@ public class CourseOfferings {
     private final int teacherID;
     private final int roomID;
     private final int period;
+    private final int offeringID;
+    private static int offeringCounter = 1;
     private static final ArrayList<CourseOfferings> courseOfferings = new ArrayList<>();
 
     public CourseOfferings(int courseID, int teacherID, int roomID, int period){
@@ -14,6 +16,8 @@ public class CourseOfferings {
         this.teacherID = teacherID;
         this.roomID = roomID;
         this.period = period;
+        this.offeringID = offeringCounter;
+        offeringCounter++;
     }
 
     public static void generateCourseOfferings() {
@@ -103,5 +107,13 @@ public class CourseOfferings {
     @Override
     public String toString() {
         return ("("+courseID+","+teacherID+","+roomID+","+period+")");
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public int getCourseOfferingID() {
+        return offeringID;
     }
 }

@@ -7,10 +7,14 @@ public class Students {
     private static final ArrayList<Students> students = new ArrayList<>();
     private final String lastName;
     private final String firstName;
+    private final int studentID;
+    private static int studentCounter = 1;
 
     public Students(String fName, String lName){
         this.firstName = fName;
         this.lastName = lName;
+        this.studentID = studentCounter;
+        studentCounter++;
     }
 
     public static void generatesStudents() {
@@ -55,5 +59,10 @@ public class Students {
         catch (FileNotFoundException e) {
             return fileData;
         }
+    }
+
+
+    public int getStudentID() {
+        return studentID;
     }
 }
