@@ -7,18 +7,24 @@ public class Grades {
     private final int grade;
     private static final ArrayList<Grades> grades = new ArrayList<>();
 
-    public Grades(int aID, int sID){
+    public Grades(int aID, int sID, int g){
         this.assignmentID = aID;
         this.studentID = sID;
-        this.grade = (int) (Math.random() * 26) + 75;
-    }
-
-    public static void main(String[] args) {
-
+        this.grade = g;
     }
 
     public static void generateGrades(){
+        ArrayList<Assignments> assignments = Assignments.getAssignments();
+        ArrayList<Students> students = Students.getStudents();
+        for (int i = 0; i < assignments.size(); i++) {
+            //grades (int) (Math.random() * 26) + 75;
+            assignments.get(i).getOfferingID();
+        }
+    }
 
+    @Override
+    public String toString() {
+        return ("("+assignmentID+","+studentID+","+grade+")");
     }
 
     public static void printGrades(){

@@ -7,7 +7,7 @@ public class Main {
         Courses.generateCourses();
         CourseOfferings.generateCourseOfferings();
         Rosters.generateRosters();
-        Assignments.generateGrades();
+        Assignments.generateAssignments();
 //        Grades.generateGrades();
 //
 //
@@ -25,16 +25,15 @@ public class Main {
 //        Courses.printCourses();
 //        System.out.println();
 //
-        CourseOfferings.printCourseOfferings();
+//        CourseOfferings.printCourseOfferings();
 //        System.out.println();
 //
 //        Rosters.printRosters();
 //        System.out.println();
 
         Assignments.printGrades();
-        System.out.println(
-                Assignments.getAssignments().size());//        System.out.println();
-//
+//        System.out.println();
+
 //        Grades.printGrades();
     }
 }
