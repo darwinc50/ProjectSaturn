@@ -3,9 +3,9 @@ import java.util.Random;
 
 public class Rosters {
 
-    private static int rosterID;
-    private static int studentID;
-    private static int offeringID;
+    private final int rosterID;
+    private final int studentID;
+    private final int offeringID;
     private static final ArrayList<Rosters> rosters = new ArrayList<>();
     private static int rosterCounter = 1;
 
@@ -16,31 +16,44 @@ public class Rosters {
         rosterCounter++;
     }
 
-    public static void generateRosters(){
+    public static void generateRosters() {
         ArrayList<CourseOfferings> offerings = CourseOfferings.getCourseOfferings();
         ArrayList<Students> students = Students.getStudents();
         Random rand = new Random();
+        rosters.clear();
+
         for (Students s : students) {
+            ArrayList<Integer> usedOfferings = new ArrayList<>();
+
             for (int period = 1; period <= 10; period++) {
-                ArrayList<CourseOfferings> valid = new ArrayList<>();
+                // Filter to only offerings in this period that the student hasn't taken
+                ArrayList<CourseOfferings> candidates = new ArrayList<>();
                 for (CourseOfferings co : offerings) {
-                    if (co.getPeriod() == period) {
-                        valid.add(co);
+                    if (co.getPeriod() == period &&
+                            !usedOfferings.contains(co.getCourseOfferingID())) {
+                        candidates.add(co);
                     }
                 }
-                if (!valid.isEmpty()) {
-                    CourseOfferings chosen = valid.get(rand.nextInt(valid.size()));
-                    rosters.add(new Rosters(s.getStudentID(), chosen.getCourseOfferingID()));
+
+                if (!candidates.isEmpty()) {
+                    CourseOfferings chosen =
+                            candidates.get(rand.nextInt(candidates.size()));
+                    rosters.add(new Rosters(
+                            s.getStudentID(),
+                            chosen.getCourseOfferingID()
+                    ));
+                    usedOfferings.add(chosen.getCourseOfferingID());
                 }
             }
         }
     }
 
+
     public static ArrayList<Rosters> getRosters() {
         return rosters;
     }
 
-    public static int getRosterID() {
+    public int getRosterID() {
         return rosterID;
     }
 

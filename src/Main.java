@@ -9,29 +9,28 @@ public class Main {
         Rosters.generateRosters();
 //        Assignments.generateGrades();
 //        Grades.generateGrades();
+//
+//
+        Students.printStudents();
+        System.out.println();
 
+        Teachers.printTeachers();
+        System.out.println();
+        Rooms.printRooms();
+        System.out.println();
 
-//        Students.printStudents();
-//        System.out.println();
-//
-//        Teachers.printTeachers();
-//        System.out.println();
-//
-//        Rooms.printRooms();
-//        System.out.println();
-//
-//        Departments.printDepartments();
-//        System.out.println();
-//
-//        Courses.printCourses();
-//        System.out.println();
-//
-//        CourseOfferings.printCourseOfferings();
-//        System.out.println();
-//
+        Departments.printDepartments();
+        System.out.println();
+
+        Courses.printCourses();
+        System.out.println();
+
+        CourseOfferings.printCourseOfferings();
+        System.out.println();
+
         Rosters.printRosters();
-//        System.out.println();
-//
+        System.out.println();
+
 //        Assignments.printGrades();
 //        System.out.println();
 //
