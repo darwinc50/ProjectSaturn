@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args){
 
+        Departments.getDepartments().clear();
         Students.getStudents().clear();
         Rooms.getRooms().clear();
-        Departments.getDepartments().clear();
         Teachers.getTeachers().clear();
         Courses.getCourses().clear();
         CourseOfferings.getCourseOfferings().clear();
@@ -22,15 +22,18 @@ public class Main {
         Grades.generateGrades();
 
 
+        Departments.printDepartments();
+        System.out.println();
+
         Students.printStudents();
         System.out.println();
-        Teachers.printTeachers();
-        System.out.println();
+
         Rooms.printRooms();
         System.out.println();
 
-        Departments.printDepartments();
+        Teachers.printTeachers();
         System.out.println();
+
 
         Courses.printCourses();
         System.out.println();
