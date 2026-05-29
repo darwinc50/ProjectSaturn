@@ -30,7 +30,7 @@ public class Rooms {
             System.out.print(rooms.get(i));
             System.out.println(",");
         }
-        System.out.print(rooms.getLast());
+        System.out.print(rooms.get(rooms.size()-1));
         System.out.println(";");
     }
 

@@ -67,7 +67,7 @@ public class CourseOfferings {
             System.out.print(courseOfferings.get(i));
             System.out.println(",");
         }
-        System.out.print(courseOfferings.getLast());
+        System.out.print(courseOfferings.get(courseOfferings.size()-1));
         System.out.println(";");
     }
 

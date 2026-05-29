@@ -24,7 +24,7 @@ public class Departments {
             System.out.print(departments.get(i));
             System.out.println(",");
         }
-        System.out.print(departments.getLast());
+        System.out.print(departments.get(departments.size()-1));
         System.out.println(";");
     }
 

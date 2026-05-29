@@ -52,6 +52,6 @@ public class Assignments {
         for (int i = 0; i < assignments.size() - 1; i++) {
             System.out.print(assignments.get(i)); System.out.println(",");
         }
-        System.out.print(assignments.getLast()); System.out.println(";");
+        System.out.print(assignments.get(assignments.size() - 1)); System.out.println(";");
     }
 }

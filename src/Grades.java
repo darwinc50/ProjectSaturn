@@ -43,6 +43,6 @@ public class Grades {
         for (int i = 0; i < grades.size() - 1; i++) {
             System.out.print(grades.get(i)); System.out.println(",");
         }
-        System.out.print(grades.getLast()); System.out.println(";");
+        System.out.print(grades.get(grades.size()-1)); System.out.println(";");
     }
 }

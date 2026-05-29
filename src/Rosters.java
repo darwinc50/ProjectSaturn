@@ -62,7 +62,7 @@ public class Rosters {
             System.out.print(rosters.get(i));
             System.out.println(",");
         }
-        System.out.print(rosters.getLast());
+        System.out.print(rosters.get(rosters.size()-1));
         System.out.println(";");
     }
 

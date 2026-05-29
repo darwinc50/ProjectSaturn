@@ -35,7 +35,7 @@ public class Teachers {
             System.out.print(teachers.get(i));
             System.out.println(",");
         }
-        System.out.print(teachers.getLast());
+        System.out.print(teachers.get(teachers.size() -1));
         System.out.println(";");
     }
 

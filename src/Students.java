@@ -32,7 +32,7 @@ public class Students {
         for (int i = 0; i < students.size()-1; i++) {
             System.out.print(students.get(i)); System.out.println(",");
         }
-        System.out.print(students.getLast()); System.out.println(";");
+        System.out.print(students.get(students.size()- 1)); System.out.println(";");
     }
 
     public static ArrayList<Students> getStudents() {
