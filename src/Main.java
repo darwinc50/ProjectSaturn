@@ -40,6 +40,9 @@ public class Main {
         CourseOfferings.printCourseOfferings();
         System.out.println();
 
+        Rosters.printRosters();
+        System.out.println();
+
         Assignments.printAssignments();
         System.out.println();
 
