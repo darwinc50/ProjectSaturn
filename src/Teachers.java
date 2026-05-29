@@ -30,7 +30,7 @@ public class Teachers {
         }
     }
     public static void printTeachers(){
-        System.out.println("Insert into Teachers (teacherFirstName, teacherLastName, departmentID)");
+        System.out.println("Insert into Teachers (teacherFirstName, teacherLastName, departmentID) values");
         for (int i = 0; i < teachers.size()-1; i++) {
             System.out.print(teachers.get(i));
             System.out.println(",");
