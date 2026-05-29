@@ -6,11 +6,15 @@ public class Assignments {
     private final String assignmentName;
     private final int isAssignmentMajor;
     private static final ArrayList<Assignments> assignments = new ArrayList<>();
+    private final int AssignmentID;
+    private static int assignmentCounter = 1;
 
     public Assignments(int offeringID, String assignmentName, int isAssignmentMajor){
         this.offeringID = offeringID;
         this.assignmentName = assignmentName;
         this.isAssignmentMajor = isAssignmentMajor;
+        this.AssignmentID = assignmentCounter;
+        assignmentCounter++;
     }
 
     public static void generateAssignments(){
@@ -24,6 +28,10 @@ public class Assignments {
                 assignments.add(new Assignments(offerings.get(i).getCourseOfferingID(),name + j, 1));
             }
         }
+    }
+
+    public int getAssignmentID() {
+        return AssignmentID;
     }
 
     public static ArrayList<Assignments> getAssignments() {

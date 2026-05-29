@@ -40,6 +40,9 @@ public class Rosters {
         }
     }
 
+    public int getStudentID() {
+        return studentID;
+    }
 
     public static ArrayList<Rosters> getRosters() {
         return rosters;

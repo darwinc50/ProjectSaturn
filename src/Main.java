@@ -32,8 +32,10 @@ public class Main {
 //        System.out.println();
 
         Assignments.printGrades();
+        System.out.println(Assignments.getAssignments().size());
 //        System.out.println();
 
 //        Grades.printGrades();
+//        System.out.println(Grades.getGrades().size());
     }
 }
