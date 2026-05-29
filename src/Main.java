@@ -24,7 +24,6 @@ public class Main {
 
         Departments.printDepartments();
         System.out.println();
-
         Students.printStudents();
         System.out.println();
 
