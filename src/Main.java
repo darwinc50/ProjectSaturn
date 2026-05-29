@@ -22,31 +22,25 @@ public class Main {
         Grades.generateGrades();
 
 
-//        Departments.printDepartments();
-//        System.out.println();
-//
-//        Students.printStudents();
-//        System.out.println();
+        Departments.printDepartments();
+        System.out.println();
+
+        Students.printStudents();
+        System.out.println();
 
         Rooms.printRooms();
         System.out.println();
 
-//        Teachers.printTeachers();
-//        System.out.println();
+        Teachers.printTeachers();
+        System.out.println();
 
 
-//        Courses.printCourses();
-//        System.out.println();
+        Courses.printCourses();
+        System.out.println();
 
         CourseOfferings.printCourseOfferings();
         System.out.println();
-//
-//        Rosters.printRosters();
-//        System.out.println();
-//
-//        Assignments.printAssignments();
-//        System.out.println();
-//
-//        Grades.printGrades();
+
+        Grades.printGrades();
     }
 }
