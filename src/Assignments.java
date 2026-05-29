@@ -47,7 +47,7 @@ public class Assignments {
         return offeringID;
     }
 
-    public static void printGrades(){
+    public static void printAssignments(){
         System.out.println("insert into Assignments (offeringID, assignmentName, isAssignmentMajor) values");
         for (int i = 0; i < assignments.size() - 1; i++) {
             System.out.print(assignments.get(i)); System.out.println(",");

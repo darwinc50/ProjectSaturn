@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args){
 
-        Students.getStudents().clear();;
+        Students.getStudents().clear();
         Rooms.getRooms().clear();
         Departments.getDepartments().clear();
         Teachers.getTeachers().clear();
@@ -11,9 +11,9 @@ public class Main {
         Assignments.getAssignments().clear();
         Grades.getGrades().clear();
 
+        Departments.generateDepartments();
         Students.generatesStudents();
         Rooms.generateRooms();
-        Departments.generateDepartments();
         Teachers.generateTeachers();
         Courses.generateCourses();
         CourseOfferings.generateCourseOfferings();
@@ -41,7 +41,7 @@ public class Main {
         Rosters.printRosters();
         System.out.println();
 
-        Assignments.printGrades();
+        Assignments.printAssignments();
         System.out.println();
 
         Grades.printGrades();
