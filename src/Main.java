@@ -24,6 +24,7 @@ public class Main {
 
         Departments.printDepartments();
         System.out.println();
+
         Students.printStudents();
         System.out.println();
 
@@ -33,11 +34,13 @@ public class Main {
         Teachers.printTeachers();
         System.out.println();
 
-
         Courses.printCourses();
         System.out.println();
 
         CourseOfferings.printCourseOfferings();
+        System.out.println();
+
+        Assignments.printAssignments();
         System.out.println();
 
         Grades.printGrades();
