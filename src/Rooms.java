@@ -14,6 +14,7 @@ public class Rooms {
         this.direction = directions[direction];
         this.roomNum = rNum;
         this.roomID = roomCounter;
+        roomCounter++;
     }
     public static void generateRooms() {
         for (int i = 0; i < 9; i++) {
