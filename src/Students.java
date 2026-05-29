@@ -18,7 +18,7 @@ public class Students {
     }
 
     public static void generatesStudents() {
-        ArrayList<String> fileData = getFileData("src/Students");
+        ArrayList<String> fileData = getFileData("src/Students.txt");
         for (String fileDatum : fileData) {
             String first = fileDatum.split(" ")[0];
             String last = fileDatum.split(" ")[1];

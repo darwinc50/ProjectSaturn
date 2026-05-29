@@ -13,7 +13,6 @@ public class Main {
 
         Students.printStudents();
         System.out.println();
-
         Teachers.printTeachers();
         System.out.println();
         Rooms.printRooms();
@@ -35,6 +34,5 @@ public class Main {
         System.out.println();
 
         Grades.printGrades();
-
     }
 }
