@@ -45,4 +45,8 @@ public class Grades {
         }
         System.out.print(grades.get(grades.size()-1)); System.out.println(";");
     }
+
+    public static ArrayList<Grades> getGrades() {
+        return grades;
+    }
 }
